@@ -8,9 +8,7 @@ const messageSchema = mongoose.Schema({
     },
     sentAt: {
         type: String,
-        default: function() {
-            return moment().tz("Asia/Kolkata").format("HH:mm:ss");
-        }
+        default: moment().tz("Asia/Kolkata").format("HH:mm:ss")
     }
 });
 
