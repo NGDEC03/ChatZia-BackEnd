@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+
 const mongoose = require('mongoose');
 const path = require('path');
 const User = require('./userModel'); // Import User model
@@ -17,6 +18,7 @@ app.post("/registerUser", async (req, res) => {
   const { userName } = req.body;
   try {
     const existingUser = await User.findOne({ userName: userName });
+    console.log(existingUser);
     if (existingUser) {
       return res.json({ message: "User Already Exists" });
     }

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const moment=require("moment-timezone")
 const messageSchema = mongoose.Schema({
     userName: String,
     message: {
@@ -9,7 +9,7 @@ const messageSchema = mongoose.Schema({
     sentAt: {
         type: String,
         default: function() {
-            return new Date().toLocaleTimeString();
+            return moment().tz("Asia/Kolkata").format("HH:mm:ss");
         }
     }
 });
