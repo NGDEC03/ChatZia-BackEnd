@@ -11,7 +11,7 @@ app.use(express.json());
 mongoose.connect("mongodb+srv://ngdec03:70mSLFgLFj9Xm9cV@chatifly.hwr1och.mongodb.net/chatifly");
 
 
-app.get("/",(req,res)=>{res.send("hhi")})
+app.post("/",(req,res)=>{res.send("hhi")})
 
 app.post("/registerUser", async (req, res) => {
   const { userName } = req.body;
