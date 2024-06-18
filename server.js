@@ -46,9 +46,9 @@ app.post("/setMessage", async (req, res) => {
 });
 
 app.post("/fetchMessage", async (req, res) => {
-  const { userName } = req.body;
+  // const { userName } = req.body;
   try {
-    const messages = await Message.find({ userName: userName });
+    const messages = await Message.find();
     res.json(messages);
   } catch (error) {
     console.error("Error fetching messages:", error);
