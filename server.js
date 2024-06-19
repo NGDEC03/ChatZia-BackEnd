@@ -10,7 +10,7 @@ require("dotenv").config()
 const app = express();
 app.use(cors());
 app.use(express.json());
-mongoose.connect(process.env.DB_URL);
+mongoose.connect("mongodb+srv://ngdec03:70mSLFgLFj9Xm9cV@chatifly.hwr1och.mongodb.net/chatzia");
 
 
 
