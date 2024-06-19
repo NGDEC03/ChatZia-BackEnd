@@ -10,17 +10,17 @@ require("dotenv").config()
 const app = express();
 app.use(cors());
 app.use(express.json());
-mongoose.connect("mongodb+srv://ngdec03:70mSLFgLFj9Xm9cV@chatifly.hwr1och.mongodb.net/chatzia");
-
+mongoose.connect(process.env.DB_URL)
 
 
 
 app.post("/registerUser", async (req, res) => {
-  const { userName } = req.body;
+  let { userName } = req.body;
+ userName=userName.charCodeAt(0)>=97 && userName.charCodeAt(0)<=122 ?String.fromCharCode(userName.charCodeAt(0)-32)+userName.substr(1):userName
   try {
     const existingUser = await User.findOne({ userName: userName });
     if (existingUser) {
-      return res.json({ message: "User Already Exists" });
+      return res.json({ message: "User Already Exists"});
     }
     const newUser = await User.create({ userName: userName });
     res.json({ message: "User Created Successfully" });
