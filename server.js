@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const User = require('./userModel'); // Import User model
 const Message = require('./messageModel'); // Import Message model
-require("dotenv")
+require("dotenv").config()
 
 const app = express();
 app.use(cors());
